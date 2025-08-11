@@ -1,0 +1,75 @@
+# Build directories and files
+/build/
+/bin/
+/obj/
+/out/
+
+# Object files
+*.o
+*.obj
+
+# Precompiled headers
+*.gch
+*.pch
+
+# Libraries and archives
+*.lib
+*.a
+*.so
+*.dll
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Debug files
+*.dSYM/
+*.pdb
+
+# CMake files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+
+# Qt files
+*.moc
+*.qrc
+*.ts
+
+# VSCode files
+.vscode/
+
+# Visual Studio files
+*.vcxproj*
+*.sln
+*.user
+*.opensdf
+*.suo
+*.ncb
+
+# MacOS files
+.DS_Store
+
+# Temporary files
+*~
+*.swp
+*.tmp
+*.bak
+
+# Logs
+*.log
+
+# Coverage files
+*.gcda
+*.gcno
+*.gcov
+
+# Dist files
+/dist/
+
+# Package managers
+/node_modules/
+
+/simpletest/
