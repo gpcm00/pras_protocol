@@ -1,72 +1,4 @@
 
-# #     # Start UDP listener in separate thread
-# #     udp_thread = threading.Thread(target=listen_udp_port, daemon=True)
-# #     udp_thread.start()
-
-# #
-
-# import threading
-# import socket
-# import ssl
-# import struct
-
-# UDP_PORT = 51234
-
-# def listen_udp_port():
-#     print(f"Listening on UDP port {UDP_PORT}...")
-#     udp_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-#     udp_sock.bind(('0.0.0.0', UDP_PORT))
-
-#     while True:
-#         data, addr = udp_sock.recvfrom(4096)
-#         print(f"UDP Message from {addr}: {data.decode(errors='replace')}")
-
-# def pad_to_32_bytes(data: bytes) -> bytes:
-#     """Ensure data is exactly 32 bytes: pad with null bytes or truncate."""
-#     return data[:32].ljust(32, b'\x00')
-
-# # === Configuration ===
-# HOST = '127.0.0.1'
-# PORT = 61234  # Update as needed
-
-# # === TLS Context Setup ===
-# context = ssl.create_default_context()
-# context.check_hostname = False
-# context.verify_mode = ssl.CERT_NONE  # For localhost testing only
-
-# udp_thread = threading.Thread(target=listen_udp_port, daemon=True)
-# udp_thread.start()
-
-# # === Connect over TLS ===
-# with socket.create_connection((HOST, PORT)) as sock:
-#     with context.wrap_socket(sock, server_hostname=HOST) as ssock:
-#         print("[*] Connected via TLS")
-
-#         # === Send 32-byte message: 2-byte port + 'open port' + padding ===
-#         port_bytes = struct.pack('>H', UDP_PORT)
-#         message = pad_to_32_bytes(port_bytes + b'open_port')
-#         ssock.sendall(message)
-#         print(f"[*] Sent: {message}")
-
-#         # === Receive server reply ===
-#         reply = ssock.recv(4096)
-#         print(f"[<] Server replied: {reply}")
-
-#         # === Interactive loop ===
-#         while True:
-#             try:
-#                 user_input = input("Enter message: ")
-#                 input_bytes = pad_to_32_bytes(user_input.encode())
-#                 ssock.sendall(input_bytes)
-#                 response = ssock.recv(4096)
-#                 print(f"[<] Server replied:{[f'0x{b:02x}' for b in response]}")
-#                 print (len(response))
-#             except (KeyboardInterrupt, EOFError):
-#                 print("\n[!] Exiting.")
-#                 break
-
-
-
 import threading
 import socket
 import ssl
@@ -112,7 +44,7 @@ def listen_udp_port():
 
     while True:
         data, addr = udp_sock.recvfrom(4096)
-        
+
         print(f"UDP Message from {addr}: {data.decode(errors='replace')}")
 
 def pad_to_32_bytes(data: bytes) -> bytes:
