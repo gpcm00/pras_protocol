@@ -3,7 +3,7 @@ This protocol was developed to work on a Raspberry Pi.
 
 The device acts as the server, and currently only allows one client.
 
-The client is able to write to named FIFOs as in the config file. I will add more info on the protocol evenrually.
+The client is able to write to named FIFOs as in the config file. I will add a tutorial on how to use the protocol eventually.
 
 Other process can stream data to client over UDP by writing to the FIFO file.
 
